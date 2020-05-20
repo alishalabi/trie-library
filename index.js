@@ -25,8 +25,23 @@ class PrefixTree {
   contains(string) {
     let currentIndex = 0
     let currentNode = this.head
+    // console.log(currentNode)
     // Check every letter before first
-    while (currentIndex > string.length - 1)
+    while (currentIndex < string.length - 1) {
+      const currentLetter = string.charAt(currentIndex)
+      // console.log(currentLetter)
+      if (currentNode.children[currentLetter] === undefined) {
+        return false
+      }
+      currentNode = currentNode.children[currentLetter]
+      currentIndex += 1
+    }
+    const lastLetter = string.charAt(string.length - 1)
+    if (currentNode.children[lastLetter] === undefined) {
+      return false
+    }
+    return true
+
   }
 
   addString(string) {
@@ -35,7 +50,6 @@ class PrefixTree {
     let currentNode = this.head
     // Iterate through each letter
     let index = 0
-    console.log(string.length)
     while (index < string.length - 1) {
       // Add child to head
       const letter = string.charAt(index)
@@ -59,7 +73,8 @@ class PrefixTree {
 // console.log(nodeA.data)
 // console.log(nodeA.next)
 
-// tree = new PrefixTree
+tree = new PrefixTree
+
 // tree.addNode(tree.head, "A")
 // console.log(tree.head.children)
 // Add tests
@@ -85,7 +100,11 @@ class PrefixTree {
 
 
 // Contains tests
-
+tree.addString("ABC")
+console.log(tree.contains("ABC"))
+console.log(tree.contains("Happy Days"))
+tree.addString("Happy Days")
+console.log(tree.contains("Happy Days"))
 
 
 // export TreeNode;
