@@ -23,7 +23,10 @@ class PrefixTree {
   }
 
   contains(string) {
-
+    let currentIndex = 0
+    let currentNode = this.head
+    // Check every letter before first
+    while (currentIndex > string.length - 1)
   }
 
   addString(string) {
@@ -32,7 +35,8 @@ class PrefixTree {
     let currentNode = this.head
     // Iterate through each letter
     let index = 0
-    while (index < string.length) {
+    console.log(string.length)
+    while (index < string.length - 1) {
       // Add child to head
       const letter = string.charAt(index)
       // const newNode = new TreeNode(string.charAt(index))
@@ -44,7 +48,7 @@ class PrefixTree {
     // const lastNode = new TreeNode(string.charAt(string.length))
     // When last node, terminal = true
     // lastNode.terminal = true
-    const letter = string.charAt(string.length)
+    const letter = string.charAt(string.length - 1)
     this.addNode(currentNode, letter, true)
     currentNode.children[letter].terminal = true
   }
@@ -55,8 +59,8 @@ class PrefixTree {
 // console.log(nodeA.data)
 // console.log(nodeA.next)
 
-tree = new PrefixTree
-tree.addNode(tree.head, "A")
+// tree = new PrefixTree
+// tree.addNode(tree.head, "A")
 // console.log(tree.head.children)
 // Add tests
 // const aNode = tree.head.children["A"]
@@ -68,13 +72,22 @@ tree.addNode(tree.head, "A")
 
 
 // Add string tests
-tree.addString("ABC")
-console.log(tree.head.children)
-const aNode = tree.head.children["A"]
-console.log(aNode)
-console.log(aNode.children)
-const bNode = aNode.children["B"]
-console.log(bNode.data)
-const cNode = bNode.children["C"]
-console.log(cNode.data)
-console.log(cNode)
+// tree.addString("ABC")
+// console.log(tree.head.children)
+// const aNode = tree.head.children["A"]
+// console.log(aNode)
+// console.log(aNode.children)
+// const bNode = aNode.children["B"]
+// console.log(bNode.data)
+// const cNode = bNode.children["C"]
+// console.log(cNode.data)
+// console.log(cNode)
+
+
+// Contains tests
+
+
+
+// export TreeNode;
+module.exports.PrefixTree = PrefixTree;
+// export default PrefixTree;
