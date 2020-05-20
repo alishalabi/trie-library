@@ -45,7 +45,9 @@ class PrefixTree {
   }
 
   addString(string) {
-    // TODO: See if string exists
+    if (this.contains(string)) {
+      return
+    }
     // Set current node
     let currentNode = this.head
     // Iterate through each letter
