@@ -100,13 +100,12 @@ tree = new PrefixTree
 
 
 // Contains tests
-tree.addString("ABC")
-console.log(tree.contains("ABC"))
-console.log(tree.contains("Happy Days"))
-tree.addString("Happy Days")
-console.log(tree.contains("Happy Days"))
+// tree.addString("ABC")
+// console.log(tree.contains("ABC"))
+// console.log(tree.contains("Happy Days"))
+// tree.addString("Happy Days")
+// console.log(tree.contains("Happy Days"))
 
 
-// export TreeNode;
 module.exports.PrefixTree = PrefixTree;
-// export default PrefixTree;
+module.exports.TreeNode = TreeNode;
